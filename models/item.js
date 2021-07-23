@@ -34,3 +34,16 @@ const itemSchema = new mongoose.Schema({
     }
 
 })
+
+// the model
+const Item = mongoose.model('Items', itemSchema)
+
+// validating the input
+const validtateItem = (item) => {
+    const schema = {
+        itemNO: Joi.number().required(),
+        itemTitle: Joi.string().required().min(3).max(100),
+        itemText: Joi.string().required().min(3).max(100),
+        location: Joi.string().required().min(3).max(100)
+    }
+}
